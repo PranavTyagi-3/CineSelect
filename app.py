@@ -1,6 +1,7 @@
 import pickle
 import streamlit as st
 import requests
+import os
 
 def fetch_poster(movie_id):
     url = f"https://api.themoviedb.org/3/movie/{movie_id}?api_key=23571579463eccee6c20518f860d7510&language=en-US"
@@ -31,7 +32,14 @@ def recommend(movie):
     return recommended_movie_names, recommended_movie_posters
 
 st.header('Movie Recommender System')
+current_directory = os.getcwd()
 
+# List all files in the current directory
+files = os.listdir(current_directory)
+
+# Print each file
+for file in files:
+    print(file)
 # Load movie list and similarity matrix
 movies = pickle.load(open('movie_list.pkl', 'rb'))
 similarity = pickle.load(open('similarity.pkl', 'rb'))
