@@ -2,3 +2,4 @@ streamlit
 requests
 pickle-mixin
 pandas==1.5.2
+numpy==1.23.5
